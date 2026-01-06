@@ -95,7 +95,7 @@ struct TodayView: View {
                 }
                 .listStyle(.insetGrouped)
             }
-            .navigationTitle("Today")
+            .navigationTitle("Agenda 📋")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

@@ -110,7 +110,7 @@ struct StatsView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Stats")
+            .navigationTitle("Stats 📊")
         }
     }
 

@@ -14,33 +14,45 @@ struct UpcomingView: View {
             $0.completedAt == nil &&
             $0.dueDate >= tomorrow
         }
-
     }
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(upcomingTodos) { todo in
-                    NavigationLink {
-                        TodoDetailView(todo: todo)
+
+            if upcomingTodos.isEmpty {
+                EmptyUpcomingView()
+                    .navigationTitle("Upcoming 👀")
+                    .toolbar {
+                        Button {
+                            showAdd = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+
+            } else {
+                List {
+                    ForEach(upcomingTodos) { todo in
+                        NavigationLink {
+                            TodoDetailView(todo: todo)
+                        } label: {
+                            TodoRowView(todo: todo)
+                        }
+                    }
+                    .onDelete(perform: deleteTodo)
+                }
+                .navigationTitle("Upcoming 👀")
+                .toolbar {
+                    Button {
+                        showAdd = true
                     } label: {
-                        TodoRowView(todo: todo)
+                        Image(systemName: "plus")
                     }
                 }
-                .onDelete(perform: deleteTodo)
             }
-            .navigationTitle("Upcoming")
-            .toolbar {
-                Button {
-                    showAdd = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-            }
-            .sheet(isPresented: $showAdd) {
-                TodoDetailView(todo: nil)
-            }
-
+        }
+        .sheet(isPresented: $showAdd) {
+            TodoDetailView(todo: nil)
         }
     }
 

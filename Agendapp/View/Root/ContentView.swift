@@ -1,22 +1,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: AppTab = .today   // 👈 default tab
+
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
+            StatsView()
+                .tabItem {
+                    Label("Stats", systemImage: "chart.bar")
+                }
+                .tag(AppTab.stats)
+
             TodayView()
                 .tabItem {
-                    Label("Today", systemImage: "sun.max")
+                    Label("Present", systemImage: "sun.max")
                 }
+                .tag(AppTab.today)
 
             UpcomingView()
                 .tabItem {
                     Label("Upcoming", systemImage: "calendar")
                 }
+                .tag(AppTab.upcoming)
 
-            StatsView()
+            NewsView()
                 .tabItem {
-                    Label("Stats", systemImage: "chart.bar")
+                    Label("Headlines", systemImage: "newspaper")
                 }
+                .tag(AppTab.headlines)
+
+
         }
     }
 }
