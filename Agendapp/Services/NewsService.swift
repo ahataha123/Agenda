@@ -12,7 +12,7 @@ final class NewsService {
     static let shared = NewsService()
     private init() {}
 
-    private let apiKey = ""
+    private let apiKey = Secrets.newsApiKey
 
     func fetchTopHeadlines() async throws -> [NewsArticle] {
         let today = todayString()
@@ -32,15 +32,21 @@ final class NewsService {
             throw URLError(.badURL)
         }
 
-        let (data, _) = try await URLSession.shared.data(from: url)
-        let response = try JSONDecoder().decode(NewsResponse.self, from: data)
-        return response.articles
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        if let http = response as? HTTPURLResponse, http.statusCode != 200 {
+            print("❌ NewsAPI HTTP status:", http.statusCode)
+            print(String(data: data, encoding: .utf8) ?? "")
+        }
+
+        let decoded = try JSONDecoder().decode(NewsResponse.self, from: data)
+        return decoded.articles
     }
+
     private func todayString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = .current
         return formatter.string(from: Date())
     }
-
 }

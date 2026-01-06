@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		4E2207E02EE0D21100055208 /* Agendapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agendapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E5BC5DC2F0DB42D00C167F3 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +33,7 @@
 		4E2207D72EE0D21100055208 = {
 			isa = PBXGroup;
 			children = (
+				4E5BC5DC2F0DB42D00C167F3 /* Secret.xcconfig */,
 				4E2207E22EE0D21100055208 /* Agendapp */,
 				4E2207E12EE0D21100055208 /* Products */,
 			);
@@ -116,6 +118,7 @@
 /* Begin XCBuildConfiguration section */
 		4E2207EB2EE0D21200055208 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E5BC5DC2F0DB42D00C167F3 /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -179,6 +182,7 @@
 		};
 		4E2207EC2EE0D21200055208 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E5BC5DC2F0DB42D00C167F3 /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -243,8 +247,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3U8R386F6;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Agendapp/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -273,8 +277,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3U8R386F6;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Agendapp/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
