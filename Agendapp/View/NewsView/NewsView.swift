@@ -35,7 +35,7 @@ struct NewsView: View {
                     }
                 }
             }
-            .navigationTitle("News 🗞️")
+            .navigationTitle("Headlines 🗞️")
             .task {
                 await vm.loadNews()
             }
